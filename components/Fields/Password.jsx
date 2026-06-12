@@ -10,7 +10,7 @@ const Password = (props) => {
       <input type={type} className="input" autoComplete="current-password" {...props} />
       <button
         type="button"
-        className="absolute right-0 p-2 outline-none"
+        className="absolute right-0 p-2 outline-hidden"
         onClick={() => toggle(!showPassword)}
         tabIndex="-1"
       >

@@ -98,7 +98,7 @@ const TimePicker = ({ disabled = false, id, interval = 1, onChange, placeholder,
           type="text"
           value={formattedTime}
         />
-        <span className="pointer-events-none absolute right-0 top-0 grid h-full place-items-center p-2.5 outline-none">
+        <span className="pointer-events-none absolute right-0 top-0 grid h-full place-items-center p-2.5 outline-hidden">
           <i className="fa-regular fa-clock text-primary"></i>
         </span>
       </div>
@@ -113,7 +113,7 @@ const TimePicker = ({ disabled = false, id, interval = 1, onChange, placeholder,
                 return (
                   <li
                     className={classnames(
-                      'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded p-0 hover:bg-gray-200',
+                      'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded-sm p-0 hover:bg-gray-200',
                       time.hour === hour && 'bg-gray-200'
                     )}
                     id={`hour-${hour}`}
@@ -133,7 +133,7 @@ const TimePicker = ({ disabled = false, id, interval = 1, onChange, placeholder,
                 return (
                   <li
                     className={classnames(
-                      'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded p-0 hover:bg-gray-200',
+                      'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded-sm p-0 hover:bg-gray-200',
                       time.minute === minute * interval && 'bg-gray-200',
                       isNaN(time.hour) && 'pointer-events-none cursor-not-allowed opacity-50'
                     )}

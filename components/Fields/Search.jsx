@@ -64,7 +64,7 @@ const Search = ({ extraClass, id, minChars = 3, onChange, placeholder, value = '
       </div>
       {text !== '' && (
         <button
-          className="absolute right-0 top-0 z-30 h-full px-3 py-2 text-gray-500 outline-none"
+          className="absolute right-0 top-0 z-30 h-full px-3 py-2 text-gray-500 outline-hidden"
           onClick={resetInputValue}
           tabIndex={-1}
           type="button"

@@ -14,7 +14,7 @@ const Page = () => {
           <MenuButton />
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="grid gap-4 rounded bg-white p-4 shadow">
+          <div className="grid gap-4 rounded-sm bg-white p-4 shadow-sm">
             <p className="text-gray-800">
               Bacon ipsum dolor amet brisket jowl burgdoggen, sausage capicola ground round chicken
               tail boudin porchetta landjaeger turducken turkey shoulder short ribs. Ham meatloaf
@@ -43,7 +43,7 @@ const Page = () => {
               <SayHello />
             </div>
           </div>
-          <div className="grid gap-4 rounded bg-white p-4 shadow">
+          <div className="grid gap-4 rounded-sm bg-white p-4 shadow-sm">
             <p className="text-gray-800">
               Bacon ipsum dolor amet shank rump kevin fatback, corned beef short loin salami. Beef
               hamburger pork sirloin corned beef burgdoggen. Beef ground round meatloaf tail filet

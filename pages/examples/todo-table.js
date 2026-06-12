@@ -9,7 +9,7 @@ const Page = () => {
 
   return (
     <Layout title="To Do Table">
-      <div className="flex flex-col rounded-lg border bg-white shadow">
+      <div className="flex flex-col rounded-lg border bg-white shadow-sm">
         <div className="flex justify-between border-b p-4">
           <h3 className="text-base font-semibold md:text-xl lg:text-2xl">To Dos</h3>
           <Link href="#" className="button full primary no-underline">
@@ -21,7 +21,7 @@ const Page = () => {
           <TodoFilters setOptions={setOptions} />
         </div>
       </div>
-      <div className="flex w-full flex-col overflow-x-auto rounded-lg bg-white pb-0 shadow">
+      <div className="flex w-full flex-col overflow-x-auto rounded-lg bg-white pb-0 shadow-sm">
         <TodoTable options={options} />
       </div>
     </Layout>

@@ -13,7 +13,7 @@ const RemoveTodo = ({ id }) => {
   return (
     <button
       type="button"
-      className="mx-1 flex h-6 w-6 items-center justify-center rounded border font-semibold text-gray-400 hover:border-accent hover:text-accent"
+      className="mx-1 flex h-6 w-6 items-center justify-center rounded-sm border font-semibold text-gray-400 hover:border-accent hover:text-accent"
       onClick={handleDelete}
     >
       <i className="fas fa-times" />

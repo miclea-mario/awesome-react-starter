@@ -12,7 +12,7 @@ const LabeledSelect = ({ extraClass = '', id, label, onChange, options, value })
       </label>
       <select
         aria-labelledby={`${id}-label`}
-        className="mt-4 w-full cursor-pointer appearance-none bg-transparent p-2 pt-3 focus-visible:outline-none"
+        className="mt-4 w-full cursor-pointer appearance-none bg-transparent p-2 pt-3 focus-visible:outline-hidden"
         id={id}
         onChange={onChange}
         value={value}

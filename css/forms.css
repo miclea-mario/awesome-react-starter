@@ -57,24 +57,24 @@ input::-webkit-inner-spin-button {
 .has-error .input,
 .has-error .select,
 .has-error .textarea {
-  @apply border-red-500 !important;
+  @apply border-red-500!;
 }
 
 .has-error .form-label,
 .has-error .form-help {
-  @apply text-red-600 !important;
+  @apply text-red-600!;
 }
 
 .input {
-  @apply rounded-lg border border-neutral-300 px-3 py-2 shadow-sm outline-none focus:ring-1 focus:ring-blue-300 !important;
+  @apply rounded-lg! border! border-neutral-300! px-3! py-2! shadow-xs! outline-hidden! focus:ring-1! focus:ring-blue-300!;
 }
 
 .textarea {
-  @apply rounded-lg border border-neutral-300 px-3 py-2 shadow-sm outline-none focus:ring-1 focus:ring-blue-300 !important;
+  @apply rounded-lg! border! border-neutral-300! px-3! py-2! shadow-xs! outline-hidden! focus:ring-1! focus:ring-blue-300!;
 }
 
 .select {
-  @apply appearance-none rounded-lg border border-neutral-300 px-3 py-2 shadow-sm outline-none focus:ring-1 focus:ring-blue-300 !important;
+  @apply appearance-none! rounded-lg! border! border-neutral-300! px-3! py-2! shadow-xs! outline-hidden! focus:ring-1! focus:ring-blue-300!;
 }
 
 .select {
@@ -86,32 +86,32 @@ input::-webkit-inner-spin-button {
 }
 
 .dropdown {
-  @apply flex w-full justify-between rounded-lg border border-neutral-300 bg-white px-3 py-2 shadow-sm !important;
+  @apply flex! w-full! justify-between! rounded-lg! border! border-neutral-300! bg-white! px-3! py-2! shadow-xs!;
 }
 
 .dropdown:focus-within {
-  @apply ring-1 ring-blue-300 focus:outline-none !important;
+  @apply ring-1! ring-blue-300! focus:outline-hidden!;
 }
 
 .dropdown-list {
-  @apply absolute top-full z-10 max-h-80 w-full rounded-b-lg border border-t-0 border-neutral-300 bg-white shadow-sm outline-none !important;
+  @apply absolute! top-full! z-10! max-h-80! w-full! rounded-b-lg! border! border-t-0! border-neutral-300! bg-white! shadow-xs! outline-hidden!;
 }
 
 input[type='password'] {
   letter-spacing: 0.125em;
-  @apply pr-8 !important;
+  @apply pr-8!;
 }
 
 .checkbox {
-  @apply h-5 w-5 cursor-pointer accent-primary !important;
+  @apply h-5! w-5! cursor-pointer! accent-primary!;
 }
 
 .radio {
-  @apply h-5 w-5 cursor-pointer p-2 accent-primary !important;
+  @apply h-5! w-5! cursor-pointer! p-2! accent-primary!;
 }
 
 .plusminus {
-  @apply inline-flex divide-x divide-neutral-300 rounded-lg border border-neutral-300 bg-white text-center shadow-sm !important;
+  @apply inline-flex! divide-x! divide-neutral-300! rounded-lg! border! border-neutral-300! bg-white! text-center! shadow-xs!;
 }
 
 select#day,

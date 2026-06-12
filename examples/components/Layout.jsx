@@ -12,7 +12,7 @@ const Layout = ({ title, children }) => {
           <MenuButton />
         </div>
         <div className="grid gap-4">
-          <div className="rounded border border-gray-300 bg-white p-4">{children}</div>
+          <div className="rounded-sm border border-gray-300 bg-white p-4">{children}</div>
         </div>
       </main>
     </div>

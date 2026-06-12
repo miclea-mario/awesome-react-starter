@@ -16,7 +16,7 @@ const Dropdown = ({ children, disabled, icon, id, onChange, placeholder, value }
         {...downshift.getToggleButtonProps()}
       >
         <input
-          className="-my-2 w-full bg-transparent outline-none"
+          className="-my-2 w-full bg-transparent outline-hidden"
           disabled={disabled}
           id={id}
           placeholder={placeholder}

@@ -8,7 +8,7 @@ const Page = () => {
       <div className="grid gap-4 md:grid-cols-2">
         <TodoBox />
         <section>
-          <div className="flex flex-col gap-4 rounded bg-white p-4 shadow">
+          <div className="flex flex-col gap-4 rounded-sm bg-white p-4 shadow-sm">
             <h3 className="text-lg font-semibold">Help is on its way</h3>
             <p>
               Shoulder pancetta cow, tail ground round brisket swine turducken landjaeger. Shankle

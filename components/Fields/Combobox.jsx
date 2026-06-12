@@ -16,7 +16,7 @@ const Combobox = ({ children, disabled, icon, id, onChange, placeholder, value }
         {...downshift.getComboboxProps()}
       >
         <input
-          className="-my-2 w-full bg-transparent outline-none"
+          className="-my-2 w-full bg-transparent outline-hidden"
           {...downshift.getInputProps({ id, placeholder, disabled })}
         />
         <button

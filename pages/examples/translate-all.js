@@ -11,7 +11,7 @@ const Page = () => {
           </div>
           <MenuButton />
         </div>
-        <div className="grid gap-4 rounded bg-white p-4 shadow">
+        <div className="grid gap-4 rounded-sm bg-white p-4 shadow-sm">
           <div className="flex flex-col">
             <h4 className="mb-2 text-lg">Translate all text in the page</h4>
             <p className="mb-2">Hello world</p>
