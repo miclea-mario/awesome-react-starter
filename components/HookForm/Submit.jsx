@@ -1,6 +1,6 @@
 import { Button } from '@components/ui/button';
+import { Spinner } from '@components/ui/spinner';
 import { classnames } from '@lib';
-import { LoaderCircle } from 'lucide-react';
 import { useFormContext } from 'react-hook-form';
 
 const Submit = ({ children, isLoading, ...props }) => {
@@ -12,12 +12,10 @@ const Submit = ({ children, isLoading, ...props }) => {
   props.disabled = disabled;
 
   return (
-    <div className="relative inline-flex items-center">
-      <Button type="submit" {...props}>
-        <div className={classnames(disabled && 'invisible')}>{children}</div>
-      </Button>
-      {disabled && <LoaderCircle className="absolute inset-0 m-auto h-6 w-6 animate-spin" />}
-    </div>
+    <Button type="submit" {...props}>
+      {isLoading || isSubmitting ? <Spinner data-icon="inline-start" /> : null}
+      <div className={classnames(disabled && 'invisible')}>{children}</div>
+    </Button>
   );
 };
 
