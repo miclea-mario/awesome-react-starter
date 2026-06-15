@@ -38,10 +38,10 @@ function Calendar({
       locale={locale}
       formatters={{
         formatMonthDropdown: (date) =>
-          date.toLocaleString(locale?.code, { month: "short" }),
+          date.toLocaleString((locale as any)?.code, { month: "short" }),
         ...formatters,
       }}
-      classNames={{
+      classNames={({
         root: cn("w-fit", defaultClassNames.root),
         months: cn(
           "relative flex flex-col gap-4 md:flex-row",
@@ -130,7 +130,7 @@ function Calendar({
         ),
         hidden: cn("invisible", defaultClassNames.hidden),
         ...classNames,
-      }}
+      } as any)}
       components={{
         Root: ({ className, rootRef, ...props }) => {
           return (
@@ -197,7 +197,7 @@ function CalendarDayButton({
       ref={ref}
       variant="ghost"
       size="icon"
-      data-day={day.date.toLocaleDateString(locale?.code)}
+      data-day={day.date.toLocaleDateString((locale as any)?.code)}
       data-selected-single={
         modifiers.selected &&
         !modifiers.range_start &&

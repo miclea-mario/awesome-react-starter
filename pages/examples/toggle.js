@@ -1,53 +1,53 @@
-import { withAuth } from '@auth';
-import { Toggle } from '@components';
-import { Layout } from '@examples/components';
+import { AppSidebar } from '@components/app-sidebar';
+import { SiteHeader } from '@components/site-header';
+import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
+import Link from 'next/link';
+import { Button } from '@components/ui/button';
+import { Toggle } from '@components/ui/toggle';
+import { Sparkles } from 'lucide-react';
 
-const Page = () => {
-  const onToggle = (isChecked) => {
-    const message = isChecked ? 'Enabled' : 'Disabled';
-    alert(`Toggle is ${message}`);
-  };
-
+export default function Page() {
   return (
-    <Layout title="Toggle">
-      <div className="prose-sm">
-        <h3 className="mt-0">Example #1</h3>
-        <p className="mb-1">Classic toggle with default label</p>
-        <Toggle />
+    <SidebarProvider
+      style={{
+        '--sidebar-width': 'calc(var(--spacing) * 72)',
+        '--header-height': 'calc(var(--spacing) * 12)',
+      }}
+    >
+      <AppSidebar variant="inset" />
+      <SidebarInset>
+        <SiteHeader title="Toggle" />
+        <div className="flex flex-1 flex-col">
+          <div className="@container/main flex flex-1 flex-col gap-6 p-6">
+            <div className="flex flex-col gap-2 border-b pb-4">
+              <h2 className="text-xl font-bold font-heading">Toggle</h2>
+              <div className="flex items-center gap-4">
+                <p className="text-sm text-muted-foreground">
+                  Toggling active state action buttons.
+                </p>
+                <Button asChild variant="link" size="xs">
+                  <Link target="_blank" href="https://ui.shadcn.com/docs/components/toggle">
+                    See Documentation
+                  </Link>
+                </Button>
+              </div>
+            </div>
 
-        <h3 className="mt-0">Example #2</h3>
-        <p className="mb-1">Classic toggle with custom label</p>
-        <Toggle label="Custom label" />
-
-        <h3 className="mt-0">Example #3</h3>
-        <p className="mb-1">Disabled toggle</p>
-        <Toggle label="Disabled" initialState={false} disabled={true} />
-
-        <h3 className="mt-0">Example #4</h3>
-        <p className="mb-1">Toggle enabled by default</p>
-        <Toggle initialState={true} label="Enabled" />
-
-        <h3 className="mt-0">Example #5</h3>
-        <p className="mb-1">Disabled toggle with initialState set to true</p>
-        <Toggle initialState={true} label="Disabled enabled" disabled={true} />
-
-        <h3 className="mt-0">Example #6</h3>
-        <p className="mb-1">Toggle with custom onTrigger callback</p>
-        <Toggle onToggle={onToggle} />
-
-        <h3 className="mt-0">Example #7</h3>
-        <p className="mb-1">Toggle with custom stlying applied (via extraClass prop)</p>
-        <Toggle
-          extraClass="peer-checked:bg-violet-600 peer-focus:ring-violet-300"
-          label="Violet toggle"
-        />
-      </div>
-    </Layout>
+            <div className="flex flex-1 items-start justify-start py-4">
+              
+            <Toggle aria-label="Toggle sparkles">
+              <Sparkles className="size-4" />
+            </Toggle>
+    
+            </div>
+          </div>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
-};
+}
 
 export async function getStaticProps() {
-  // hide page on production environments
   if (process.env.NODE_ENV === 'production') {
     return {
       notFound: true,
@@ -58,5 +58,3 @@ export async function getStaticProps() {
     props: {},
   };
 }
-
-export default withAuth(Page);

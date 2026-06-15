@@ -1,4 +1,5 @@
-import { Menu, MenuButton, Tooltip } from '@components';
+import { Menu, MenuButton } from '@components';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@components/ui/tooltip';
 import { SayGoodbye, SayHello } from '@examples/components';
 
 const Page = () => {
@@ -9,7 +10,14 @@ const Page = () => {
         <div className="mb-12 flex items-center">
           <div className="flex flex-1">
             <h3 className="text-2xl font-semibold">Dashboard</h3>
-            <Tooltip placement="bottom">Just another tooltip</Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="text-sm text-muted-foreground cursor-pointer underline">Hover me</span>
+              </TooltipTrigger>
+              <TooltipContent>
+                Just another tooltip
+              </TooltipContent>
+            </Tooltip>
           </div>
           <MenuButton />
         </div>

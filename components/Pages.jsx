@@ -24,6 +24,9 @@ const Pages = () => {
         </MenuItem>
       </MenuGroup>
       <MenuGroup label="Components">
+        <MenuItem href="/examples/kitchen-sink" level="2">
+          Kitchen Sink (All Primitives)
+        </MenuItem>
         <MenuItem href="/examples/buttons" level="2">
           Buttons
         </MenuItem>
@@ -88,6 +91,9 @@ const Pages = () => {
         </MenuItem>
         <MenuItem href="/examples/react-hook-form" level="2">
           React hook forms
+        </MenuItem>
+        <MenuItem href="/examples/react-hook-form-advanced" level="2">
+          React hook form advanced
         </MenuItem>
         <MenuItem href="/examples/react-hook-array" level="2">
           React hook array field

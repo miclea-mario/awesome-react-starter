@@ -1,11 +1,8 @@
 export { default as AsyncCombobox } from './AsyncCombobox';
-export { default as AsyncDropdown } from './AsyncDropdown';
 export { default as Autocomplete } from './Autocomplete';
 export { default as Checkbox } from './Checkbox';
 export { default as Combobox } from './Combobox';
-export { default as DateOfBirth } from './DateOfBirth';
 export { default as DatePicker } from './DatePicker';
-export { default as Dropdown } from './Dropdown';
 export { default as Email } from './Email';
 export { default as Field } from './Field';
 export { default as Fieldset } from './Fieldset';
@@ -27,5 +24,4 @@ export { default as Recaptcha } from './Recaptcha';
 export { default as Search } from './Search';
 export { default as Select } from './Select';
 export { default as Submit } from './Submit';
-export { default as Textarea } from './Textarea';
 export { default as TimePicker } from './TimePicker';

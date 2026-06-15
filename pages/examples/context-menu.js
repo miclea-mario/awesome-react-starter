@@ -1,129 +1,60 @@
-import { withAuth } from '@auth';
-import { Button, ContextMenu } from '@components';
-import { Layout } from '@examples/components';
-import { useState } from 'react';
+import { AppSidebar } from '@components/app-sidebar';
+import { SiteHeader } from '@components/site-header';
+import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
+import Link from 'next/link';
+import { Button } from '@components/ui/button';
+import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem, ContextMenuSeparator } from '@components/ui/context-menu';
 
-const Page = () => {
-  const [showOptions, setShowOptions] = useState('admin');
-
-  const options = [
-    {
-      label: 'Option 1',
-      onClick: () => alert('Option 1'),
-    },
-    {
-      label: 'Option 2',
-      onClick: () => alert('Option 2'),
-    },
-  ];
-
-  const linkOptions = [
-    {
-      label: 'Link 1',
-      href: '/examples/buttons',
-    },
-    {
-      label: 'Link 2',
-      href: '/examples/context-menu',
-    },
-  ];
-
-  const mixedOptions = [
-    {
-      label: 'Option 1',
-      onClick: () => alert('Option 1'),
-    },
-    {
-      label: 'Link 1',
-      href: '/examples/buttons',
-    },
-  ];
-
-  const userAndAdminOptions = [
-    {
-      label: 'Admin option 1',
-      onClick: () => alert('Admin option 1'),
-      renderCondition: showOptions === 'admin',
-    },
-    {
-      label: 'Admin option 2',
-      onClick: () => setShowOptions('Admin option 2'),
-      renderCondition: showOptions === 'admin',
-    },
-    {
-      label: 'User option 1',
-      onClick: () => alert('User option 1'),
-      renderCondition: showOptions === 'user',
-    },
-    {
-      label: 'User option 2',
-      onClick: () => alert('User option 2'),
-      renderCondition: showOptions === 'user',
-    },
-  ];
-
+export default function Page() {
   return (
-    <Layout title="Context Menu">
-      <div className="prose-sm">
-        <h3 className="mt-0">Example #1</h3>
-        <p>Context menu with options that have onClick (will execute a function when clicked)</p>
-        <div className="not-prose w-36">
-          <ContextMenu options={options}>
-            <i className="fa-solid fa-ellipsis-vertical text-xl" />
-          </ContextMenu>
+    <SidebarProvider
+      style={{
+        '--sidebar-width': 'calc(var(--spacing) * 72)',
+        '--header-height': 'calc(var(--spacing) * 12)',
+      }}
+    >
+      <AppSidebar variant="inset" />
+      <SidebarInset>
+        <SiteHeader title="Context Menu" />
+        <div className="flex flex-1 flex-col">
+          <div className="@container/main flex flex-1 flex-col gap-6 p-6">
+            <div className="flex flex-col gap-2 border-b pb-4">
+              <h2 className="text-xl font-bold font-heading">Context Menu</h2>
+              <div className="flex items-center gap-4">
+                <p className="text-sm text-muted-foreground">
+                  Displays a menu triggered by a right-click action.
+                </p>
+                <Button asChild variant="link" size="xs">
+                  <Link target="_blank" href="https://ui.shadcn.com/docs/components/context-menu">
+                    See Documentation
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex flex-1 items-start justify-start py-4">
+              
+            <ContextMenu>
+              <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm text-muted-foreground bg-muted/10">
+                Right click inside this area
+              </ContextMenuTrigger>
+              <ContextMenuContent className="w-48">
+                <ContextMenuItem>Back</ContextMenuItem>
+                <ContextMenuItem disabled>Forward</ContextMenuItem>
+                <ContextMenuSeparator />
+                <ContextMenuItem>Reload</ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
+    
+            </div>
+          </div>
         </div>
-        <h3 className="mt-4">Example #2</h3>
-        <p>Context menu with options that have href (will redirect to a new page when clicked)</p>
-        <div className="not-prose w-36">
-          <ContextMenu options={linkOptions}>
-            <i className="fa-solid fa-ellipsis-vertical text-xl" />
-          </ContextMenu>
-        </div>
-        <h3 className="mt-4">Example #3</h3>
-        <p>
-          Context menu with mixed options (some have onClick and some have href) and renderCondition
-        </p>
-        <div className="not-prose w-36">
-          <ContextMenu options={mixedOptions}>
-            <i className="fa-solid fa-ellipsis-vertical text-xl" />
-          </ContextMenu>
-        </div>
-        <h3 className="mt-4">Example #4</h3>
-        <p>Context menu with custom button (is given as a child of the component)</p>
-        <div className="not-prose w-44">
-          <ContextMenu options={options}>
-            <div className="button full primary">Custom button</div>
-          </ContextMenu>
-        </div>
-        <h3 className="mt-4">Example #5</h3>
-        <p>
-          Context menu with options that have renderCondition (will only show options that match the
-          condition)
-        </p>
-        <div className="not-prose w-36">
-          <ContextMenu options={userAndAdminOptions}>
-            <i className="fa-solid fa-ellipsis-vertical text-xl" />
-          </ContextMenu>
-        </div>
-        <p>
-          Currently showing options for: <span className="font-bold">{showOptions}</span> (used to
-          demonstrate renderCondition)
-        </p>
-        <div className="flex gap-2">
-          <Button onClick={() => setShowOptions('admin')} className="button full primary">
-            Show admin options
-          </Button>
-          <Button onClick={() => setShowOptions('user')} className="button full primary">
-            Show user options
-          </Button>
-        </div>
-      </div>
-    </Layout>
+      </SidebarInset>
+    </SidebarProvider>
   );
-};
+}
 
 export async function getStaticProps() {
-  // hide page on production environments
   if (process.env.NODE_ENV === 'production') {
     return {
       notFound: true,
@@ -134,5 +65,3 @@ export async function getStaticProps() {
     props: {},
   };
 }
-
-export default withAuth(Page);

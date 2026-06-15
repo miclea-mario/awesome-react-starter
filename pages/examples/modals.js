@@ -1,4 +1,5 @@
-import { Button, Modal } from '@components';
+import { Button } from '@components';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@components/ui/dialog';
 import { Layout } from '@examples/components';
 import { useDisclosure } from '@hooks';
 
@@ -16,21 +17,27 @@ const Page = () => {
           <Button className="button full primary" onClick={show}>
             Open modal
           </Button>
-          <Modal
-            isOpen={isOpen}
-            hide={hide}
-            title="Hello world"
-            footer={
-              <Button className="button mini accent" onClick={hide}>
-                Close modal
-              </Button>
+          <Dialog open={isOpen} onOpenChange={(open) => {
+            if (!open) {
+              hide();
             }
-          >
-            <p className="text-sm text-gray-800">
-              Bacon ipsum dolor amet frankfurter meatloaf picanha, pork chop flank bacon turkey
-              sausage jowl hamburger cow ham corned beef.
-            </p>
-          </Modal>
+          }}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Hello world</DialogTitle>
+                <DialogDescription>This is a dialog example.</DialogDescription>
+              </DialogHeader>
+              <p className="text-sm text-gray-800">
+                Bacon ipsum dolor amet frankfurter meatloaf picanha, pork chop flank bacon turkey
+                sausage jowl hamburger cow ham corned beef.
+              </p>
+              <DialogFooter>
+                <Button className="button mini accent" onClick={hide}>
+                  Close modal
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </section>
       </div>
     </Layout>

@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-@import './normalize.css' layer(utilities);
 @import './buttons.css' layer(utilities);
 @import './calendar.css' layer(utilities);
 @import './components.css' layer(utilities);

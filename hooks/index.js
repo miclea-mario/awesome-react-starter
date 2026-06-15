@@ -4,7 +4,6 @@ export { default as useCollapsible } from './use-collapsible';
 export { default as useCombobox } from './use-combobox';
 export { default as useDebounce } from './use-debounce';
 export { default as useDisclosure } from './use-disclosure';
-export { default as useDropdown } from './use-dropdown';
 export { default as useInfiniteQuery } from './use-infinite-query';
 export { default as useIntersectionObserver } from './use-intersection-observer';
 export { default as useMutation } from './use-mutation';

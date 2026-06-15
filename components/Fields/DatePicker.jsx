@@ -2,6 +2,7 @@ import { Button } from '@components/ui/button';
 import { Calendar } from '@components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/popover';
 import { formatDate } from '@functions';
+import { CalendarIcon } from 'lucide-react';
 
 const DatePicker = ({ value, onChange, calendarProps, ...props }) => {
   const handleChange = (newDate) => {
@@ -20,7 +21,7 @@ const DatePicker = ({ value, onChange, calendarProps, ...props }) => {
             variant="outline"
             className="justify-start px-2.5 font-normal w-full overflow-hidden text-ellipsis"
           >
-            <i className="far fa-calendar-days mr-2" />
+            <CalendarIcon className="size-4 mr-2" />
             {value ? formatDate(value, 'LLL dd, y') : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>

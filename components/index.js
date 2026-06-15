@@ -33,6 +33,8 @@ export { default as Spinner } from './Spinner';
 export { default as Time } from './Time';
 export { default as Toaster } from './Toaster';
 export { default as Toggle } from './Toggle';
+export { ModeToggle } from './mode-toggle';
 export { default as TranslateAll } from './TranslateAll';
 export { default as Trim } from './Trim';
 export { default as withRouter } from './withRouter';
+

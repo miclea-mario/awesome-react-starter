@@ -1,4 +1,4 @@
-import { Link } from '@components';
+import { Link, ModeToggle } from '@components';
 import { LoginForm } from '@components/Forms';
 import { Button } from '@components/ui/button';
 import {
@@ -10,9 +10,18 @@ import {
   CardTitle,
 } from '@components/ui/card';
 
+/**
+ * Login page component serving as the home page.
+ * Displays the login form with theme support toggling.
+ * 
+ * @returns {React.ReactElement} The rendered login page.
+ */
 const Page = () => {
   return (
-    <main className="cover flex min-h-screen flex-col items-center justify-center px-4 py-8">
+    <main className="cover relative flex min-h-screen flex-col items-center justify-center px-4 py-8">
+      <div className="absolute top-4 right-4">
+        <ModeToggle />
+      </div>
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Login</CardTitle>
@@ -38,3 +47,4 @@ const Page = () => {
 };
 
 export default Page;
+
