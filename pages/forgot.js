@@ -1,16 +1,37 @@
-import { Link } from '@components';
 import { ForgotForm } from '@components/Forms';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@components/ui/breadcrumb';
+import { Card, CardContent, CardHeader, CardTitle } from '@components/ui/card';
 
 const Page = () => {
   return (
     <main className="cover flex min-h-screen flex-col items-center justify-center px-4 py-8">
-      <div className="my-8 flex w-full max-w-xl flex-col rounded-lg bg-white px-4 py-8 lg:px-12">
-        <Link href="/login" className="hover:underline">
-          ← back to login
-        </Link>
-        <h2 className="mb-4 text-2xl font-bold">Password recovery</h2>
-        <ForgotForm />
-      </div>
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <Breadcrumb>
+            <BreadcrumbList className="p-0">
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/login">Login</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Forgot Password</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          <CardTitle>Password recovery</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ForgotForm />
+        </CardContent>
+      </Card>
     </main>
   );
 };
