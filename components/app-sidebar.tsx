@@ -131,8 +131,8 @@ const data = {
       url: '/examples/accordion',
     },
     {
-      name: 'Reports',
-      url: '/examples/reports',
+      name: 'Alert',
+      url: '/examples/alert',
     },
     {
       name: 'Word Assistant',

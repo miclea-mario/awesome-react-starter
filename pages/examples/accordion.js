@@ -6,7 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@components/ui/accordion';
+import { Button } from '@components/ui/button';
 import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -20,7 +22,19 @@ export default function Page() {
       <SidebarInset>
         <SiteHeader title="Accordion" />
         <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2 px-6">
+          <div className="@container/main flex flex-1 flex-col gap-2 p-6">
+            <div className="flex items-center gap-4">
+              <p className="text-sm">
+                A vertically stacked set of interactive headings that each reveal a section of
+                content.
+              </p>
+              <Button asChild variant="link">
+                <Link target="_blank" href="https://ui.shadcn.com/docs/components/radix/accordion">
+                  See Documentation
+                </Link>
+              </Button>
+            </div>
+
             <Accordion type="single" collapsible defaultValue="shipping" className="max-w-lg">
               <AccordionItem value="shipping">
                 <AccordionTrigger>What are your shipping options?</AccordionTrigger>
