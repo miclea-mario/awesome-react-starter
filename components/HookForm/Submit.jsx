@@ -1,6 +1,5 @@
 import { Button } from '@components/ui/button';
 import { Spinner } from '@components/ui/spinner';
-import { classnames } from '@lib';
 import { useFormContext } from 'react-hook-form';
 
 const Submit = ({ children, isLoading, ...props }) => {
@@ -14,7 +13,7 @@ const Submit = ({ children, isLoading, ...props }) => {
   return (
     <Button type="submit" {...props}>
       {isLoading || isSubmitting ? <Spinner data-icon="inline-start" /> : null}
-      <div className={classnames(disabled && 'invisible')}>{children}</div>
+      <div>{children}</div>
     </Button>
   );
 };
