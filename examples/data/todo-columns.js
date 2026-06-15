@@ -1,5 +1,4 @@
 import { Time } from '@components';
-import TodoStatusCell from '@examples/components/Todos/TodoStatusCell';
 
 const todoColumns = [
   {
@@ -12,12 +11,6 @@ const todoColumns = [
     id: 'name',
     header: 'My To Do',
     accessorKey: 'name',
-  },
-  {
-    id: 'done',
-    header: 'Status',
-    accessorKey: 'done',
-    cell: TodoStatusCell,
   },
   {
     id: 'createdAt',

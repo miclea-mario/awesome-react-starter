@@ -19,7 +19,6 @@
 - `axios` for managing API requests
 - `date-fns` for managing dates
 - `lodash` for utility functions for common programming tasks
-- `react-bootstrap` for common components like alerts, tabs, accordions
 - `yup` for schema validation
 - `accounting` for formatting numbers
 - `store2` for local / session storage
