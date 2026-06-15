@@ -1,8 +1,19 @@
+import {
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  Field as FieldPrimitive,
+} from '@components/ui/field';
+import { get } from 'lodash';
 import { Controller, useFormContext } from 'react-hook-form';
-import Fieldset from './Fieldset';
 
 const Field = ({ as: Component, name, label, help, isCheckbox, ...rest }) => {
-  const { control } = useFormContext();
+  const {
+    formState: { errors, isSubmitted },
+    control,
+  } = useFormContext();
+
+  const hasError = get(errors, name) && isSubmitted;
 
   const render = ({ field }) => {
     // Extract a normalized "next value" from either an event or a raw value
@@ -30,6 +41,7 @@ const Field = ({ as: Component, name, label, help, isCheckbox, ...rest }) => {
       name,
       onBlur: field.onBlur,
       ref: field.ref,
+      'aria-invalid': hasError,
       ...rest,
     };
 
@@ -51,9 +63,12 @@ const Field = ({ as: Component, name, label, help, isCheckbox, ...rest }) => {
 
   // Otherwise wrap in Fieldset for accessible labeling and help text
   return (
-    <Fieldset name={name} label={label} help={help}>
+    <FieldPrimitive>
+      {label && <FieldLabel>{label}</FieldLabel>}
+      {help && <FieldDescription>{help}</FieldDescription>}
       {controlEl}
-    </Fieldset>
+      <FieldError>{hasError && get(errors, name).message}</FieldError>
+    </FieldPrimitive>
   );
 };
 
