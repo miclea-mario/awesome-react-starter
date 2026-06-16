@@ -1,5 +1,4 @@
 export { default as AppHead } from './AppHead';
-export { default as Bone } from './Bone';
 export { default as Button } from './Button';
 export { default as ContextMenu } from './ContextMenu';
 export { default as EmailMask } from './EmailMask';
@@ -14,6 +13,7 @@ export { default as Menu } from './Menu';
 export { default as MenuButton } from './MenuButton';
 export { default as MenuGroup } from './MenuGroup';
 export { default as MenuItem } from './MenuItem';
+export { ModeToggle } from './mode-toggle';
 export { default as NoIndex } from './NoIndex';
 export { default as NoSsr } from './NoSsr';
 export { default as OpenGraph } from './OpenGraph';
@@ -33,8 +33,6 @@ export { default as Spinner } from './Spinner';
 export { default as Time } from './Time';
 export { default as Toaster } from './Toaster';
 export { default as Toggle } from './Toggle';
-export { ModeToggle } from './mode-toggle';
 export { default as TranslateAll } from './TranslateAll';
 export { default as Trim } from './Trim';
 export { default as withRouter } from './withRouter';
-
