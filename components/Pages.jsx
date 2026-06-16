@@ -51,15 +51,6 @@ const Pages = () => {
         <MenuItem href="/examples/async-multiselect" level="2">
           Async multi select
         </MenuItem>
-        <MenuItem href="/examples/combobox" level="2">
-          Combobox
-        </MenuItem>
-        <MenuItem href="/examples/async-combobox" level="2">
-          Async combobox
-        </MenuItem>
-        <MenuItem href="/examples/autocomplete" level="2">
-          Autocomplete
-        </MenuItem>
         <MenuItem href="/examples/modals" level="2">
           Modals
         </MenuItem>
