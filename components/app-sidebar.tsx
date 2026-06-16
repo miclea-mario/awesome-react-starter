@@ -17,7 +17,7 @@ import {
   CameraIcon,
   ChartBarIcon,
   CircleHelpIcon,
-  CommandIcon,
+  CodeXml,
   FileTextIcon,
   FolderIcon,
   LayoutDashboardIcon,
@@ -179,7 +179,7 @@ const data = {
     { name: 'Textarea', url: '/examples/textarea' },
     { name: 'Toggle Group', url: '/examples/toggle-group' },
     { name: 'Toggle', url: '/examples/toggle' },
-    { name: 'Tooltip', url: '/examples/tooltip' }
+    { name: 'Tooltip', url: '/examples/tooltip' },
   ],
 };
 
@@ -191,8 +191,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:p-1.5!">
               <a href="#">
-                <CommandIcon className="size-5!" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <CodeXml className="size-5!" />
+                <span className="text-base font-semibold">Your Awesome App</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
