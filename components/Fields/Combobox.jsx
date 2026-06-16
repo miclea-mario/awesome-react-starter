@@ -1,5 +1,5 @@
 import { useCombobox } from '@hooks';
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 import OptionList from './OptionList';
 
 const Combobox = ({ children, disabled, icon, id, onChange, placeholder, value }) => {
@@ -8,7 +8,7 @@ const Combobox = ({ children, disabled, icon, id, onChange, placeholder, value }
   return (
     <div className="relative">
       <div
-        className={classnames(
+        className={cn(
           'dropdown',
           downshift.isOpen && inputItems.length > 0 && 'rounded-b-none',
           disabled && 'pointer-events-none bg-gray-200'
@@ -20,7 +20,7 @@ const Combobox = ({ children, disabled, icon, id, onChange, placeholder, value }
           {...downshift.getInputProps({ id, placeholder, disabled })}
         />
         <button
-          className={classnames(disabled && 'pointer-events-none')}
+          className={cn(disabled && 'pointer-events-none')}
           type="button"
           {...downshift.getToggleButtonProps()}
         >

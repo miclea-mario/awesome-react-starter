@@ -1,4 +1,4 @@
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 
 const Preview = ({ children, title, type }) => {
   return (
@@ -10,7 +10,7 @@ const Preview = ({ children, title, type }) => {
         </div>
       </div>
       <div
-        className={classnames(
+        className={cn(
           'overflow-hidden rounded-lg border border-gray-300',
           type === 'card' && 'bg-gray-200 p-8'
         )}

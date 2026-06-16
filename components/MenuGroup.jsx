@@ -1,5 +1,5 @@
 import { useCollapsible } from '@hooks';
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 
 const MenuGroup = ({ name, label, children, level = 1 }) => {
   const { isOpen, toggle } = useCollapsible(`menu.${name}`);
@@ -7,7 +7,7 @@ const MenuGroup = ({ name, label, children, level = 1 }) => {
   return (
     <>
       <div
-        className={classnames(
+        className={cn(
           'flex cursor-pointer items-center py-2 text-gray-900 hover:bg-gray-100',
           level === 1 ? 'pl-8' : 'pl-12'
         )}
@@ -15,10 +15,10 @@ const MenuGroup = ({ name, label, children, level = 1 }) => {
       >
         <span>{label}</span>
         <span className="pl-1 text-gray-600">
-          <i className={classnames(isOpen ? 'fas fa-angle-down' : 'fas fa-angle-up')} />
+          <i className={cn(isOpen ? 'fas fa-angle-down' : 'fas fa-angle-up')} />
         </span>
       </div>
-      <div className={classnames('flex flex-col py-2', !isOpen && 'hidden')}>{children}</div>
+      <div className={cn('flex flex-col py-2', !isOpen && 'hidden')}>{children}</div>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useDisclosure, useOnClickOutside } from '@hooks';
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 import { isFunction } from 'lodash';
 import { useRef, useState } from 'react';
 
@@ -112,7 +112,7 @@ const TimePicker = ({ disabled = false, id, interval = 1, onChange, placeholder,
               {Array.from(Array(24).keys()).map((hour) => {
                 return (
                   <li
-                    className={classnames(
+                    className={cn(
                       'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded-sm p-0 hover:bg-gray-200',
                       time.hour === hour && 'bg-gray-200'
                     )}
@@ -132,7 +132,7 @@ const TimePicker = ({ disabled = false, id, interval = 1, onChange, placeholder,
               {Array.from(Array(60 / interval).keys()).map((minute) => {
                 return (
                   <li
-                    className={classnames(
+                    className={cn(
                       'm-0 mx-1 flex h-7 cursor-pointer items-center justify-center rounded-sm p-0 hover:bg-gray-200',
                       time.minute === minute * interval && 'bg-gray-200',
                       isNaN(time.hour) && 'pointer-events-none cursor-not-allowed opacity-50'

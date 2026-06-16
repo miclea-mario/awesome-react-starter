@@ -1,4 +1,4 @@
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 import { debounce, isFunction } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
 
@@ -48,7 +48,7 @@ const Search = ({ extraClass, id, minChars = 3, onChange, placeholder, value = '
   };
 
   return (
-    <div className={classnames('relative flex items-center', extraClass)}>
+    <div className={cn('relative flex items-center', extraClass)}>
       <input
         id={id}
         className="input pl-8"

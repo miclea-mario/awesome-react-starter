@@ -1,9 +1,9 @@
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 
 const Bone = ({ type, extraClass }) => {
   return (
     <dd
-      className={classnames(
+      className={cn(
         'h-4 rounded-full',
         extraClass || 'w-12',
         type === 'pending' && 'animate-pulse bg-gray-300',

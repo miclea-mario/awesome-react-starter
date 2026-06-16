@@ -1,4 +1,4 @@
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 import Option from './Option';
 
 const OptionList = ({ items, getItemProps, getMenuProps, highlightedIndex, isOpen }) => {
@@ -15,7 +15,7 @@ const OptionList = ({ items, getItemProps, getMenuProps, highlightedIndex, isOpe
 
   return (
     <ul
-      className={classnames(
+      className={cn(
         'my-0 overflow-y-auto p-0 outline-hidden',
         isOpen && items?.length > 0 && 'dropdown-list'
       )}

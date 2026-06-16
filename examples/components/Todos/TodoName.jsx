@@ -1,7 +1,7 @@
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 
 const TodoName = ({ done, name }) => {
-  return <span className={classnames('flex-1', done && 'line-through')}>{name}</span>;
+  return <span className={cn('flex-1', done && 'line-through')}>{name}</span>;
 };
 
 export default TodoName;

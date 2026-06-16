@@ -1,5 +1,5 @@
 import { Link } from '@components';
-import { classnames } from '@lib';
+import { cn } from '@lib/utils';
 import { useRouter } from 'next/router';
 
 const MenuItem = ({ href, children, level = 1 }) => {
@@ -9,7 +9,7 @@ const MenuItem = ({ href, children, level = 1 }) => {
   return (
     <Link
       href={href}
-      className={classnames(
+      className={cn(
         'menu-item cursor-pointer px-8 py-2 hover:bg-gray-100',
         'text-gray-900 no-underline',
         level == 1 ? 'pl-8' : 'pl-12',

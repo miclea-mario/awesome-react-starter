@@ -17,7 +17,7 @@ const MenuGroup = () => {
   const { isOpen, toggle } = useCollapsible(`menu.${name}`);
 
   return (
-    <div className={classnames(!isOpen && 'hidden')}>
+    <div className={cn(!isOpen && 'hidden')}>
       <MenuItem href="/about-us">About us</MenuItem>
       <MenuItem href="/contact">Contact</MenuItem>
     </div>
