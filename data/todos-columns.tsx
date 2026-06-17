@@ -182,11 +182,17 @@ export const columns: ColumnDef<Todo>[] = [
     header: ({ column }) => {
       return <DataTableColumnHeader column={column} title="Task" />;
     },
+    meta: {
+      title: 'Task',
+    },
   },
   {
     accessorKey: 'done',
     header: () => {
       return <div className="text-right">Done</div>;
+    },
+    meta: {
+      title: 'Done',
     },
     cell: ({ row }) => {
       const done = row.getValue('done');

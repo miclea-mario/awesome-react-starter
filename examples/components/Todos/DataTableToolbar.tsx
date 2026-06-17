@@ -3,6 +3,7 @@ import { CheckCircle, X, XCircle } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { Button } from '@components/ui/button';
+import { DataTableViewOptions } from '@components/ui/data-table-view-options';
 import { Input } from '@components/ui/input';
 import {
   Select,
@@ -89,7 +90,9 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         <Button
           variant="secondary"
           onClick={() => {
-            toaster.success(`Action successfully simulated on ${selectedRowsCount} selected task(s)`);
+            toaster.success(
+              `Action successfully simulated on ${selectedRowsCount} selected task(s)`
+            );
           }}
         >
           Perform Action ({selectedRowsCount})
@@ -107,6 +110,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
           <X className="size-4" /> Reset
         </Button>
       )}
+      <DataTableViewOptions table={table} />
     </div>
   );
 }
