@@ -15,7 +15,7 @@ const Debug = () => {
   };
 
   return (
-    <pre className="bg-red-200 p-4 font-mono text-sm lg:px-8">
+    <pre className="bg-red-500 text-foreground p-4 font-mono text-sm lg:px-8">
       {JSON.stringify(debugValues, null, 2)}
     </pre>
   );
