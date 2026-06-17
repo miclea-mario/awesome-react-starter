@@ -163,7 +163,7 @@ const data = {
     { name: 'Popover', url: '/examples/popover' },
     { name: 'Progress', url: '/examples/progress' },
     { name: 'Radio Group', url: '/examples/radio-group' },
-    { name: 'RHF Advanced Form', url: '/examples/react-hook-form-advanced' },
+    { name: 'React Hook Form', url: '/examples/react-hook-form' },
     { name: 'Resizable', url: '/examples/resizable' },
     { name: 'Scroll Area', url: '/examples/scroll-area' },
     { name: 'Select', url: '/examples/select' },
