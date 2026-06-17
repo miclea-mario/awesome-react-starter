@@ -3,8 +3,8 @@ import { SiteHeader } from '@components/site-header';
 import { Button } from '@components/ui/button';
 import { DataTable } from '@components/ui/data-table';
 import {
-  DataTablePagination,
   DataTableInfinitePagination,
+  DataTablePagination,
 } from '@components/ui/data-table-pagination';
 import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/tabs';
@@ -16,14 +16,12 @@ import { useState } from 'react';
 
 /**
  * Demo component showcasing table with server-side pagination.
- *
- * @returns {React.ReactNode} The rendered component.
  */
 function PaginationTableDemo() {
   const [sorting, setSorting] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 5,
+    pageSize: 10,
   });
   const [columnFilters, setColumnFilters] = useState([{ id: 'done', value: 'false' }]);
 
@@ -79,8 +77,6 @@ function PaginationTableDemo() {
 
 /**
  * Demo component showcasing table with infinite scroll (load more on scroll).
- *
- * @returns {React.ReactNode} The rendered component.
  */
 function InfiniteScrollTableDemo() {
   const [sorting, setSorting] = useState([]);
@@ -169,7 +165,7 @@ export default function Page() {
                 <TabsTrigger value="pagination">Standard Pagination</TabsTrigger>
                 <TabsTrigger value="scroll">Infinite Scroll</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="pagination">
                 <div className="flex flex-1 items-start justify-start py-4">
                   <div className="w-3xl flex gap-4 flex-col">
@@ -177,7 +173,7 @@ export default function Page() {
                   </div>
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="scroll">
                 <div className="flex flex-1 items-start justify-start py-4">
                   <div className="w-3xl flex gap-4 flex-col">
