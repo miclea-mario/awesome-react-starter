@@ -1,33 +1,29 @@
 import { Layout } from '@components';
-import Link from 'next/link';
 import { Button } from '@components/ui/button';
 import { Slider } from '@components/ui/slider';
+import Link from 'next/link';
 
 export default function Page() {
   return (
     <>
-            <div className="flex flex-col gap-2 border-b pb-4">
-              <h2 className="text-xl font-bold font-heading">Slider</h2>
-              <div className="flex items-center gap-4">
-                <p className="text-sm text-muted-foreground">
-                  Slide buttons for setting ranges.
-                </p>
-                <Button asChild variant="link" size="xs">
-                  <Link target="_blank" href="https://ui.shadcn.com/docs/components/slider">
-                    See Documentation
-                  </Link>
-                </Button>
-              </div>
-            </div>
+      <div className="flex flex-col gap-2 border-b pb-4">
+        <h2 className="text-xl font-bold font-heading">Slider</h2>
+        <div className="flex items-center gap-4">
+          <p className="text-sm text-muted-foreground">Slide buttons for setting ranges.</p>
+          <Button asChild variant="link" size="xs">
+            <Link target="_blank" href="https://ui.shadcn.com/docs/components/slider">
+              See Documentation
+            </Link>
+          </Button>
+        </div>
+      </div>
 
-            <div className="flex flex-1 items-start justify-start py-4">
-              
-            <div className="max-w-xs">
-              <Slider defaultValue={[50]} min={0} max={100} />
-            </div>
-    
-            </div>
-          </>
+      <div className="flex flex-1 items-start justify-start py-4">
+        <div className="w-md">
+          <Slider defaultValue={[50]} min={0} max={100} />
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -42,7 +38,6 @@ export async function getStaticProps() {
     props: {},
   };
 }
-
 
 /**
  * Attaches the default layout to the page.
