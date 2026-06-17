@@ -28,7 +28,6 @@ export { default as ProfileMenu } from './ProfileMenu';
 export { default as ProfileSuccess } from './ProfileSuccess';
 export { default as ScreenSizeInfo } from './ScreenSizeInfo';
 export { default as ShowMore } from './ShowMore';
-export { default as Spinner } from './Spinner';
 export { default as Time } from './Time';
 export { default as Toaster } from './Toaster';
 export { default as Toggle } from './Toggle';
