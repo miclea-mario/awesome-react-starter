@@ -12,7 +12,7 @@ import { toast } from 'sonner';
  */
 const mockPromise = () => {
   return new Promise((resolve, reject) => {
-    const timeoutId = setTimeout(() => {
+    setTimeout(() => {
       // 50% chance of success, 50% chance of failure for simulation purposes
       if (Math.random() > 0.5) {
         resolve({ name: 'Project' });
