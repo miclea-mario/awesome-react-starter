@@ -13,8 +13,6 @@ import { toaster } from '@lib';
 import { ColumnDef } from '@tanstack/react-table';
 import { CheckCircle, MoreHorizontal, XCircle } from 'lucide-react';
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type Todo = {
   name: string;
   done: boolean;
