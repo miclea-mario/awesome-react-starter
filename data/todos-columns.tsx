@@ -4,6 +4,7 @@ import { DataTableColumnHeader } from '@components/ui/data-table-column-header';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -11,7 +12,7 @@ import {
 } from '@components/ui/dropdown-menu';
 import { toaster } from '@lib';
 import { ColumnDef } from '@tanstack/react-table';
-import { CheckCircle, MoreHorizontal, XCircle } from 'lucide-react';
+import { CheckCircle, Copy, MoreHorizontal, TrashIcon, XCircle } from 'lucide-react';
 
 export type Todo = {
   name: string;
@@ -86,6 +87,33 @@ export const columns: ColumnDef<Todo>[] = [
         toaster.success('Task copied to clipboard');
       };
 
+      const toggleDone = () => {
+        // Simulate toggling the done state of the task
+        const newDoneState = !todo.done;
+        toaster.promise(
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(newDoneState);
+            }, 1000);
+          }),
+          {
+            loading: 'Updating task status...',
+            success: (newState) => {
+              return {
+                message: `Task marked as ${newState ? 'done' : 'not done'}`,
+                action: {
+                  label: 'Undo',
+                  onClick: () => {
+                    toggleDone();
+                  },
+                },
+              };
+            },
+            error: 'Failed to update task status',
+          }
+        );
+      };
+
       return (
         <div className="text-right">
           <DropdownMenu>
@@ -97,10 +125,27 @@ export const columns: ColumnDef<Todo>[] = [
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem onClick={handleCopyTask}>Copy task</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleCopyTask}>
+                <Copy /> Copy task
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={toggleDone}>
+                {todo.done ? (
+                  <>
+                    <XCircle /> Unmark as done
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle /> Mark as done
+                  </>
+                )}
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View todo details</DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuItem variant="destructive">
+                  <TrashIcon />
+                  Delete
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
