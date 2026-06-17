@@ -2,7 +2,7 @@ import { type Table } from '@tanstack/react-table';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { useRef } from 'react';
 
-import Spinner from '@components/Spinner';
+import { Spinner } from '@components/ui/spinner';
 import { Button } from '@components/ui/button';
 import {
   Select,
@@ -171,7 +171,7 @@ export function DataTableInfinitePagination<TData>({
     <div className="flex flex-col items-center justify-center py-6 gap-2" ref={ref}>
       {isFetchingNextPage ? (
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Spinner show={true} />
+          <Spinner />
           <span>Loading more...</span>
         </div>
       ) : (

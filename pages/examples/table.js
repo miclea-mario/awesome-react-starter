@@ -1,12 +1,10 @@
-import { AppSidebar } from '@components/app-sidebar';
-import { SiteHeader } from '@components/site-header';
+import { Layout } from '@components';
 import { Button } from '@components/ui/button';
 import { DataTable } from '@components/ui/data-table';
 import {
   DataTableInfinitePagination,
   DataTablePagination,
 } from '@components/ui/data-table-pagination';
-import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/tabs';
 import { columns } from '@data/todos-columns';
 import { DataTableToolbar } from '@examples/components/Todos/DataTableToolbar';
@@ -128,66 +126,58 @@ function InfiniteScrollTableDemo() {
   );
 }
 
-/**
- * Examples page displaying tables with Standard Pagination and Infinite Scroll.
- *
- * @returns {React.ReactNode} The rendered page component.
- */
 export default function Page() {
   return (
-    <SidebarProvider
-      style={{
-        '--sidebar-width': 'calc(var(--spacing) * 72)',
-        '--header-height': 'calc(var(--spacing) * 12)',
-      }}
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader title="Table Examples" />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-6 p-6">
-            <div className="flex flex-col gap-2 border-b pb-4">
-              <h2 className="text-xl font-bold font-heading">Table Pagination Options</h2>
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Interactive showcase of standard server-side pagination and infinite scroll.
-                </p>
-                <Button asChild variant="link" size="xs">
-                  <Link target="_blank" href="https://ui.shadcn.com/docs/components/table">
-                    See Documentation
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <Tabs defaultValue="pagination" className="flex flex-1 flex-col gap-6">
-              <TabsList>
-                <TabsTrigger value="pagination">Standard Pagination</TabsTrigger>
-                <TabsTrigger value="scroll">Infinite Scroll</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="pagination">
-                <div className="flex flex-1 items-start justify-start py-4">
-                  <div className="w-3xl flex gap-4 flex-col">
-                    <PaginationTableDemo />
-                  </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="scroll">
-                <div className="flex flex-1 items-start justify-start py-4">
-                  <div className="w-3xl flex gap-4 flex-col">
-                    <InfiniteScrollTableDemo />
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </div>
+    <>
+      <div className="flex flex-col gap-2 border-b pb-4">
+        <h2 className="text-xl font-bold font-heading">Table Pagination Options</h2>
+        <div className="flex items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            Interactive showcase of standard server-side pagination and infinite scroll.
+          </p>
+          <Button asChild variant="link" size="xs">
+            <Link target="_blank" href="https://ui.shadcn.com/docs/components/table">
+              See Documentation
+            </Link>
+          </Button>
         </div>
-      </SidebarInset>
-    </SidebarProvider>
+      </div>
+
+      <Tabs defaultValue="pagination" className="flex flex-1 flex-col gap-6">
+        <TabsList>
+          <TabsTrigger value="pagination">Standard Pagination</TabsTrigger>
+          <TabsTrigger value="scroll">Infinite Scroll</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="pagination">
+          <div className="flex flex-1 items-start justify-start py-4">
+            <div className="w-3xl flex gap-4 flex-col">
+              <PaginationTableDemo />
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="scroll">
+          <div className="flex flex-1 items-start justify-start py-4">
+            <div className="w-3xl flex gap-4 flex-col">
+              <InfiniteScrollTableDemo />
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </>
   );
 }
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Table Examples">{page}</Layout>;
+};
 
 /**
  * Restricts this page to development/non-production build environments.

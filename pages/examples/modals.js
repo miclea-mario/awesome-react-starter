@@ -1,13 +1,13 @@
 import { Button } from '@components';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@components/ui/dialog';
-import { Layout } from '@examples/components';
+import { Layout } from '@components';
 import { useDisclosure } from '@hooks';
 
 const Page = () => {
   const { isOpen, show, hide } = useDisclosure();
 
   return (
-    <Layout title="Modals">
+    <>
       <div className="prose-sm">
         <p role="description" className="mt-0">
           Modal components help you notify the user. <br /> Modals are positioned over everything
@@ -40,7 +40,7 @@ const Page = () => {
           </Dialog>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 
@@ -58,3 +58,14 @@ export async function getStaticProps() {
 }
 
 export default Page;
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Modals">{page}</Layout>;
+};

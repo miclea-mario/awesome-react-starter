@@ -1,5 +1,5 @@
 import { Button } from '@components';
-import { Layout } from '@examples/components';
+import { Layout } from '@components';
 import { useDisclosure } from '@hooks';
 import { useState } from 'react';
 
@@ -22,7 +22,7 @@ const Page = () => {
   };
 
   return (
-    <Layout title="Filter Modal">
+    <>
       <>
         <div className="prose-sm hidden lg:block">
           <p>
@@ -47,7 +47,7 @@ const Page = () => {
           </div>
         </div>
       </>
-    </Layout>
+    </>
   );
 };
 
@@ -65,3 +65,14 @@ export async function getStaticProps() {
 }
 
 export default Page;
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Filter Modal">{page}</Layout>;
+};

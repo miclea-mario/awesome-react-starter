@@ -1,5 +1,4 @@
-import { AppSidebar } from '@components/app-sidebar';
-import { SiteHeader } from '@components/site-header';
+import { Layout } from '@components';
 import {
   Accordion,
   AccordionContent,
@@ -7,22 +6,11 @@ import {
   AccordionTrigger,
 } from '@components/ui/accordion';
 import { Button } from '@components/ui/button';
-import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <SidebarProvider
-      style={{
-        '--sidebar-width': 'calc(var(--spacing) * 72)',
-        '--header-height': 'calc(var(--spacing) * 12)',
-      }}
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader title="Accordion" />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2 p-6">
+    <>
             <div className="flex items-center gap-4">
               <p className="text-sm">
                 A vertically stacked set of interactive headings that each reveal a section of
@@ -58,9 +46,17 @@ export default function Page() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+          </>
   );
 }
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Accordion">{page}</Layout>;
+};

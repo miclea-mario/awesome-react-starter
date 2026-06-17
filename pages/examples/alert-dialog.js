@@ -1,5 +1,4 @@
-import { AppSidebar } from '@components/app-sidebar';
-import { SiteHeader } from '@components/site-header';
+import { Layout } from '@components';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,7 +12,6 @@ import {
   AlertDialogTrigger,
 } from '@components/ui/alert-dialog';
 import { Button } from '@components/ui/button';
-import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import { CircleFadingPlusIcon, Trash2Icon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -93,17 +91,7 @@ function AlertDialogDestructive() {
 
 export default function Page() {
   return (
-    <SidebarProvider
-      style={{
-        '--sidebar-width': 'calc(var(--spacing) * 72)',
-        '--header-height': 'calc(var(--spacing) * 12)',
-      }}
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader title="Alert Dialog" />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-5 p-6">
+    <>
             <div className="flex items-center gap-4">
               <p className="text-sm">
                 A modal dialog that interrupts the user with important content and expects a
@@ -141,9 +129,17 @@ export default function Page() {
               </p>
               <AlertDialogDestructive />
             </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+          </>
   );
 }
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Alert Dialog">{page}</Layout>;
+};

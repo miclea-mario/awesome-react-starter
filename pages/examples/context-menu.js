@@ -1,5 +1,4 @@
-import { AppSidebar } from '@components/app-sidebar';
-import { SiteHeader } from '@components/site-header';
+import { Layout } from '@components';
 import { Button } from '@components/ui/button';
 import {
   ContextMenu,
@@ -17,22 +16,11 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@components/ui/context-menu';
-import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import Link from 'next/link';
 
 export default function Page() {
   return (
-    <SidebarProvider
-      style={{
-        '--sidebar-width': 'calc(var(--spacing) * 72)',
-        '--header-height': 'calc(var(--spacing) * 12)',
-      }}
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader title="Context Menu" />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-6 p-6">
+    <>
             <div className="flex flex-col gap-2 border-b pb-4">
               <h2 className="text-xl font-bold font-heading">Context Menu</h2>
               <div className="flex items-center gap-4">
@@ -102,10 +90,7 @@ export default function Page() {
                 </ContextMenuContent>
               </ContextMenu>
             </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+          </>
   );
 }
 
@@ -120,3 +105,14 @@ export async function getStaticProps() {
     props: {},
   };
 }
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="Context Menu">{page}</Layout>;
+};

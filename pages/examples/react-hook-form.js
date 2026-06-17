@@ -1,12 +1,10 @@
-import { AppSidebar } from '@components/app-sidebar';
+import { Layout } from '@components';
 import { Checkbox, DatePicker, Email, Select } from '@components/Fields';
 import { ArrayField, Field, Fieldset, Form, HookForm, Submit } from '@components/HookForm';
-import { SiteHeader } from '@components/site-header';
 import { Button } from '@components/ui/button';
 import { FieldGroup } from '@components/ui/field';
 import { Input } from '@components/ui/input';
 import { SelectItem } from '@components/ui/select';
-import { SidebarInset, SidebarProvider } from '@components/ui/sidebar';
 import { Textarea } from '@components/ui/textarea';
 import Link from 'next/link';
 import { useFieldArray, useFormContext } from 'react-hook-form';
@@ -106,17 +104,7 @@ export default function Page() {
   };
 
   return (
-    <SidebarProvider
-      style={{
-        '--sidebar-width': 'calc(var(--spacing) * 72)',
-        '--header-height': 'calc(var(--spacing) * 12)',
-      }}
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader title="React Hook Form" />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-6 p-6">
+    <>
             <div className="flex flex-col gap-2 border-b pb-4">
               <div className="flex items-center gap-4">
                 <Button asChild variant="link" size="xs" className="px-0">
@@ -208,10 +196,7 @@ export default function Page() {
                 </Form>
               </HookForm>
             </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+          </>
   );
 }
 
@@ -231,3 +216,14 @@ export async function getStaticProps() {
     props: {},
   };
 }
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="React Hook Form">{page}</Layout>;
+};

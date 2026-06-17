@@ -4,7 +4,7 @@ import { TodoBox } from '@examples/components/Todos';
 
 const Page = () => {
   return (
-    <Layout title="To Do List">
+    <>
       <div className="grid gap-4 md:grid-cols-2">
         <TodoBox />
         <section>
@@ -21,7 +21,7 @@ const Page = () => {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 
@@ -39,3 +39,14 @@ export async function getStaticProps() {
 }
 
 export default withAuth(Page);
+
+
+/**
+ * Attaches the default layout to the page.
+ *
+ * @param {React.ReactNode} page - The page content.
+ * @returns {React.ReactElement} The layout wrapper.
+ */
+Page.getLayout = function getLayout(page) {
+  return <Layout title="To Do List">{page}</Layout>;
+};

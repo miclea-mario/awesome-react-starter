@@ -21,6 +21,12 @@ const queryClient = new QueryClient(queryClientConfig);
 const Root = (props) => {
   const { Component, pageProps } = props;
 
+  const getLayout = Component.getLayout;
+  let pageContent = <Component {...pageProps} />;
+  if (getLayout) {
+    pageContent = getLayout(<Component {...pageProps} />);
+  }
+
   return (
     <>
       <Head>
@@ -36,7 +42,7 @@ const Root = (props) => {
         >
           <QueryClientProvider client={queryClient}>
             <TooltipProvider>
-              <Component {...pageProps} />
+              {pageContent}
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>
